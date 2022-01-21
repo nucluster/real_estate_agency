@@ -141,3 +141,4 @@ cython_debug/
 .idea
 .vscode
 .env.bak
+py_whl/
