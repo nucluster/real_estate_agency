@@ -1,4 +1,4 @@
 Django==2.2.*
 environs
 dj-database-url
-django-phonenumber-field
+django-phonenumber-field[phonenumbers]
