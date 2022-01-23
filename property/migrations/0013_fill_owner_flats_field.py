@@ -3,7 +3,12 @@
 from django.db import migrations
 
 
-def fill_flats_field(apps, schema_editor):
+def refactoring_owner(apps, schema_editor):
+    """Очищаем таблицу собственников в БД от дублей приняв за условие,
+    что запись в таблице с одинаковым ФИО это один и тот же человек.
+    Этот человек может иметь несколько разных телефонов,
+    поэтому другой телефон добавляем в новое поле: "Добавочный телефон":
+    (additional_phone_number)"""
     Flat = apps.get_model('property', 'Flat')
     Owner = apps.get_model('property', 'Owner')
     for flat in Flat.objects.all():
