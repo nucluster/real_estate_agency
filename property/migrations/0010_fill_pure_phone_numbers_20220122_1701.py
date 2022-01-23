@@ -14,7 +14,6 @@ def fill_pure_phone_numbers(apps, schema_editor):
             flat.save()
 
 
-
 class Migration(migrations.Migration):
 
     dependencies = [
