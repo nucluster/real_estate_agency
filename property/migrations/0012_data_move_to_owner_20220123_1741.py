@@ -7,9 +7,10 @@ def move_data(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
     Owner = apps.get_model('property', 'Owner')
     for flat in Flat.objects.all():
-        Owner.objects.get_or_create(fio=flat.owner,
-                                    phone_number=flat.owners_phonenumber,
-                                    pure_phone_number=flat.owner_pure_phone)
+        Owner.objects.get_or_create(
+            fio=flat.owner,
+            phone_number=flat.owners_phonenumber,
+            pure_phone_number=flat.owner_pure_phone)[0].flats.add(flat)
 
 
 class Migration(migrations.Migration):

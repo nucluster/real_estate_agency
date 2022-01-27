@@ -19,7 +19,10 @@ class ComplaintAdmin(admin.ModelAdmin):
     raw_id_fields = ('author', 'flat')
 
 
+
 @admin.register(Owner)
 class OwnerAdmin(admin.ModelAdmin):
     raw_id_fields = ('flats',)
+    search_fields = ('fio',)
+    list_display = ('id', 'fio', 'pure_phone_number')
 
