@@ -35,7 +35,7 @@ class OwnerAdmin(admin.ModelAdmin):
     search_fields = ('fio',)
     list_display = ('id', 'fio', 'pure_phone_number')
     list_display_links = ('fio',)
-    ordering = ('id',)
+    ordering = ('-id',)
     inlines = [FlatInline,]
     exclude = ('flats',)
 
